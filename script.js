@@ -1,8 +1,9 @@
-document.querySelector("btn").addEventListener("submit", function(event) {
+document.querySelector("form").addEventListener("submit", function(event) {
     event.preventDefault();
     
     let name = document.getElementById("name").value.trim();
     let age = document.getElementById("age").value.trim();
+	let button = document.getElementById("btn").value.trim();
     
     if (!name || !age) {
         alert("Please enter valid details.");
