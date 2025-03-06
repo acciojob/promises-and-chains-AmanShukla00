@@ -6,7 +6,7 @@ document.querySelector("form").addEventListener("submit", function(event) {
     
     if (!name || !age) {
         alert("Please enter valid details.");
-        return;
+        // return;
     }
     
     age = parseInt(age);
