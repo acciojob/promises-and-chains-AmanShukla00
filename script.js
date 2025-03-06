@@ -1,26 +1,25 @@
-document.querySelector("form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    let name = document.getElementById("name").value.trim();
-    let age = document.getElementById("age").value.trim();
-	let button = document.getElementById("btn").value.trim();
-    
-    if (!name || !age) {
-        alert("Please enter valid details.");
-        // return;
-    }
-    
-    age = parseInt(age);
-    
-    new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (age > 18) {
-                resolve(`Welcome, ${name}. You can vote.`);
-            } else {
-                reject(`Oh sorry ${name}. You aren't old enough.`);
-            }
-        }, 4000);
-    })
-    .then(message => alert(message))
-    .catch(error => alert(error));
+//your JS code here. If required.
+let age = document.getElementById("age");
+let name = document.getElementById("name");
+let button = document.getElementById("btn");
+
+button.addEventListener("click", () => {
+	if(!age.value || !name.value){
+		alert("Please enter valid details");
+	}
+	else{
+		new Promise((resolve, reject) => {
+				if(age.value >= 18){
+					setTimeout(() => {
+						resolve(`Welcome, ${name.value}. You can vote.`)
+					}, 4000);
+				}
+				else{
+					setTimeout(() => {
+						reject(`Oh sorry ${name.value}. You aren't old enough.`);
+					}, 4000);
+				}
+		})
+.then(message => alert(message)).catch(error => alert(error));
+	}
 });
